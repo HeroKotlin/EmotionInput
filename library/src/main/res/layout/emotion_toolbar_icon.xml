@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="@dimen/emotion_input_toolbar_cell_width"
+    android:minHeight="@dimen/emotion_input_toolbar_height">
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="@dimen/emotion_input_toolbar_cell_divider_width"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/emotion_input_toolbar_cell_divider_offset"
+        android:layout_marginBottom="@dimen/emotion_input_toolbar_cell_divider_offset"
+        android:background="@color/emotion_input_toolbar_cell_divider_color"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        tools:src="@drawable/emotion_input_delete"/>
+
+</FrameLayout>
