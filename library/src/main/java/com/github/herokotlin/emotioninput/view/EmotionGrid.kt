@@ -161,7 +161,7 @@ class EmotionGrid: FrameLayout {
             }
             else if (emotion.imageUrl.isNotBlank()) {
                 hasEmotion = true
-                configuration.loadImage(itemView.context, imageView, emotion.imageUrl)
+                configuration.loadImage(imageView, emotion.imageUrl)
             }
             if (hasEmotion) {
 

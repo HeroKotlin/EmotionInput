@@ -3,11 +3,11 @@ package com.github.herokotlin.emotioninput
 import android.content.Context
 import android.widget.ImageView
 
-interface EmotionInputConfiguration {
+abstract class EmotionInputConfiguration(val context: Context) {
 
     /**
      * 加载图片
      */
-    fun loadImage(context: Context, imageView: ImageView, url: String)
+    abstract fun loadImage(imageView: ImageView, url: String)
 
 }
