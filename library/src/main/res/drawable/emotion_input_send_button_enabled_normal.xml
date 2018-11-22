@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <solid android:color="@color/emotion_input_send_button_left_border_color_enabled" />
+        </shape>
+    </item>
+
+    <item android:left="@dimen/emotion_input_send_button_left_border_width">
+        <shape>
+            <solid android:color="@color/emotion_input_send_button_bg_color_enabled_normal"/>
+
+            <padding
+                android:left="@dimen/emotion_input_send_button_padding_horizontal"
+                android:right="@dimen/emotion_input_send_button_padding_horizontal"/>
+
+        </shape>
+    </item>
+
+</layer-list>

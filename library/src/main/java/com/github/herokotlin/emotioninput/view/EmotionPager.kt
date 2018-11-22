@@ -35,7 +35,7 @@ class EmotionPager: LinearLayout {
     /**
      * 当前在第几套表情
      */
-    private var emotionSetIndex = 0
+    var emotionSetIndex = 0
 
         set(value) {
 
@@ -60,6 +60,21 @@ class EmotionPager: LinearLayout {
             var index = 0
             toolbar.emotionIconList = emotionSetList.map {
                 EmotionIcon(index, it.iconId, index++ == value)
+            }
+
+        }
+
+    var isSendButtonEnabled = false
+
+        set(value) {
+
+            field = value
+
+            if (value) {
+                toolbar.enableSendButton()
+            }
+            else {
+                toolbar.disableSendButton()
             }
 
         }

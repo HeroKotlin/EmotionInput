@@ -20,8 +20,6 @@
         android:elevation="20dp"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:textColor="@color/emotion_input_send_button_text_color"
-        android:background="@drawable/emotion_input_send_button"
         style="?android:attr/borderlessButtonStyle"/>
 
 </LinearLayout>

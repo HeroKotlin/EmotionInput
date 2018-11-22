@@ -57,6 +57,24 @@ class EmotionToolbar : LinearLayout {
             onSendClick()
         }
 
+        disableSendButton()
+
+    }
+
+    fun enableSendButton() {
+
+        sendButton.isEnabled = true
+        sendButton.setTextColor(ContextCompat.getColor(context, R.color.emotion_input_send_button_text_color_enabled))
+        sendButton.setBackgroundResource(R.drawable.emotion_input_send_button_enabled)
+
+    }
+
+    fun disableSendButton() {
+
+        sendButton.isEnabled = false
+        sendButton.setTextColor(ContextCompat.getColor(context, R.color.emotion_input_send_button_text_color_disabled))
+        sendButton.setBackgroundResource(R.drawable.emotion_input_send_button_disabled)
+
     }
 
     inner class IconListAdapter(private val context: Context) : RecyclerView.Adapter<IconViewHolder>() {

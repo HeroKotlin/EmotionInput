@@ -4,13 +4,13 @@
 
     <item>
         <shape>
-            <solid android:color="@color/emotion_input_send_button_left_border_color" />
+            <solid android:color="@color/emotion_input_send_button_left_border_color_disabled" />
         </shape>
     </item>
 
-    <item android:left="1px">
+    <item android:left="@dimen/emotion_input_send_button_left_border_width">
         <shape>
-            <solid android:color="@color/emotion_input_send_button_bg_color"/>
+            <solid android:color="@color/emotion_input_send_button_bg_color_disabled"/>
 
             <padding
                 android:left="@dimen/emotion_input_send_button_padding_horizontal"

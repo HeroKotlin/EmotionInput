@@ -141,7 +141,7 @@ class EmotionGrid: FrameLayout {
             view.setOnClickListener {
                 if (emotionView.visibility == View.VISIBLE) {
 
-                    val index = gridView.getChildLayoutPosition(view)
+                    val index = gridView.getChildAdapterPosition(view)
                     val emotion = emotionPage.emotionList[index]
 
                     callback.onEmotionClick(emotion)
@@ -209,7 +209,7 @@ class EmotionGrid: FrameLayout {
         override fun getItemOffsets(rect: Rect, view: View,
                                     parent: RecyclerView, state: RecyclerView.State?) {
 
-            val index = parent.getChildLayoutPosition(view)
+            val index = parent.getChildAdapterPosition(view)
             val columnCount = emotionPage.columns
             val rowIndex = index / columnCount
             val columnIndex = index % columnCount
