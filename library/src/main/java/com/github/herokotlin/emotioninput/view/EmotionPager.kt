@@ -59,7 +59,7 @@ class EmotionPager: LinearLayout {
 
             var index = 0
             toolbar.emotionIconList = emotionSetList.map {
-                EmotionIcon(index, it.iconId, index++ == value)
+                EmotionIcon(index, it.localImage, index++ == value)
             }
 
         }

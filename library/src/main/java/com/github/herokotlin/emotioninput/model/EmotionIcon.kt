@@ -6,7 +6,7 @@ data class EmotionIcon(
     val index: Int = 0,
 
     // 本地图标
-    val imageId: Int = 0,
+    val localImage: Int = 0,
 
     // 是否是选中状态
     val selected: Boolean = false

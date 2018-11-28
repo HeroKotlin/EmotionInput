@@ -21,7 +21,7 @@ abstract class EmotionFilter(pattern: String, private val emotionList: List<Emot
     private val emotionCode2ImageId: Map<String, Int> by lazy {
         val map = HashMap<String, Int>()
         for (emotion in emotionList) {
-            map[emotion.code] = emotion.imageId
+            map[emotion.code] = emotion.localImage
         }
         map
     }

@@ -116,7 +116,7 @@ class EmotionToolbar : LinearLayout {
 
             val icon = emotionIconList[position]
 
-            imageView.setImageResource(icon.imageId)
+            imageView.setImageResource(icon.localImage)
 
             val bgColor = if (icon.selected) {
                 R.color.emotion_input_toolbar_cell_bg_color_pressed

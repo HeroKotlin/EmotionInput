@@ -2,7 +2,7 @@ package com.github.herokotlin.emotioninput.model
 
 data class EmotionSet(
     // 底部栏图标
-    val iconId: Int,
+    val localImage: Int,
     // 该套表情的所有表情
     val emotionPageList: List<EmotionPage>,
     // 是否需要导航指示器
@@ -12,7 +12,7 @@ data class EmotionSet(
     companion object {
 
         fun build(
-            iconId: Int,
+            localImage: Int,
             emotionList: List<Emotion>,
             columns: Int,
             rows: Int,
@@ -70,7 +70,7 @@ data class EmotionSet(
 
             }
 
-            return EmotionSet(iconId, emotionPageList, hasIndicator)
+            return EmotionSet(localImage, emotionPageList, hasIndicator)
 
         }
     }

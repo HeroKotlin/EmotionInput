@@ -8,10 +8,10 @@ data class Emotion(
     val name: String = "",
 
     // 表情对应的本地图片
-    val imageId: Int = 0,
+    val localImage: Int = 0,
 
     // 表情对应的网络图片
-    val imageUrl: String = "",
+    val remoteImage: String = "",
 
     // 是否支持在输入框显示
     val inline: Boolean = true

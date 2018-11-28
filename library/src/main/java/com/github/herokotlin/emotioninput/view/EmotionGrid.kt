@@ -155,13 +155,13 @@ class EmotionGrid: FrameLayout {
         fun showEmotion(emotion: Emotion, width: Int, height: Int) {
 
             var hasEmotion = false
-            if (emotion.imageId > 0) {
+            if (emotion.localImage > 0) {
                 hasEmotion = true
-                imageView.setImageResource(emotion.imageId)
+                imageView.setImageResource(emotion.localImage)
             }
-            else if (emotion.imageUrl.isNotBlank()) {
+            else if (emotion.remoteImage.isNotBlank()) {
                 hasEmotion = true
-                configuration.loadImage(imageView, emotion.imageUrl)
+                configuration.loadImage(imageView, emotion.remoteImage)
             }
             if (hasEmotion) {
 
