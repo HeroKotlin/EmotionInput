@@ -72,6 +72,14 @@ class EmotionTextarea: EditText {
         }
     }
 
+    fun insertText(text: CharSequence) {
+        val spannable = SpannableStringBuilder(text)
+        for (filter in filters) {
+            filter.filter(this, spannable, text)
+        }
+        this.text.insert(selectionStart, spannable)
+    }
+
     // 命名跟 ios 保持一致
     fun deleteBackward() {
         val event = KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL)
@@ -92,12 +100,9 @@ class EmotionTextarea: EditText {
 
     private fun paste() {
         val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val string = clipboard.primaryClip.getItemAt(0).text
-        val spannable = SpannableStringBuilder(string)
-        for (filter in filters) {
-            filter.filter(this, spannable, string)
-        }
-        text.insert(selectionStart, spannable)
+        insertText(
+            clipboard.primaryClip.getItemAt(0).text
+        )
     }
 
 }
