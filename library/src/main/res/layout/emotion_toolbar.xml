@@ -9,12 +9,14 @@
         android:id="@+id/iconList"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/emotion_input_toolbar_top_border_width"/>
 
     <Button
         android:id="@+id/sendButton"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/emotion_input_toolbar_top_border_width"
         android:text="@string/emotion_input_button_send"
         android:textSize="@dimen/emotion_input_send_button_text_size"
         android:elevation="20dp"

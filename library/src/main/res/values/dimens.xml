@@ -15,6 +15,7 @@
 
     <dimen name="emotion_input_toolbar_height">44dp</dimen>
     <dimen name="emotion_input_toolbar_margin_top">8dp</dimen>
+    <dimen name="emotion_input_toolbar_top_border_width">1px</dimen>
 
     <dimen name="emotion_input_toolbar_cell_width">44dp</dimen>
     <dimen name="emotion_input_toolbar_cell_divider_width">1px</dimen>
