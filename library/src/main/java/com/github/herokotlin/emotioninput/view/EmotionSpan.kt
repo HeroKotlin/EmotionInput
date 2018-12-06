@@ -5,56 +5,40 @@ import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.text.style.ImageSpan
 
-// https://stackoverflow.com/questions/25628258/align-text-around-imagespan-center-vertical
+/**
+ * https://stackoverflow.com/questions/25628258/align-text-around-imagespan-center-vertical
+ */
+
 class EmotionSpan(drawable: Drawable): ImageSpan(drawable) {
 
     override fun getSize(paint: Paint?, text: CharSequence?, start: Int, end: Int, fm: Paint.FontMetricsInt?): Int {
-
-        val rect = drawable.bounds
-
-        if (fm != null) {
-
-            val pfm = paint?.fontMetricsInt
-
-            if (pfm != null) {
-                // keep it the same as paint's fm
-                fm.ascent = pfm.ascent
-                fm.descent = pfm.descent
-                fm.top = pfm.top
-                fm.bottom = pfm.bottom
-            }
-
-        }
-
-        return rect.right
-
+        return drawable.bounds.bottom
     }
 
     override fun draw(canvas: Canvas?, text: CharSequence?, start: Int, end: Int, x: Float, top: Int, y: Int, bottom: Int, paint: Paint?) {
 
-        if (canvas != null) {
+        val fm = paint?.fontMetricsInt
 
-            val pfm = paint?.fontMetricsInt
+        if (canvas != null && fm != null) {
 
-            if (pfm != null) {
+            val image = drawable
 
-                canvas.save()
+            // y 是基线，ascent 是负数，descent 是正数
+            val textTop = y + fm.ascent
+            val textBottom = y + fm.descent
 
-                var transY = bottom - drawable.bounds.bottom
+            // 文本的中点 - 图片的中点
+            val transY = (textTop + textBottom) / 2 - image.bounds.bottom / 2
 
-                transY -= paint.fontMetricsInt.descent / 2
+            canvas.save()
 
-                canvas.translate(x, transY.toFloat())
+            canvas.translate(x, transY.toFloat())
 
-                drawable.draw(canvas)
+            drawable.draw(canvas)
 
-                canvas.restore()
-
-            }
-
+            canvas.restore()
 
         }
-
 
     }
 }

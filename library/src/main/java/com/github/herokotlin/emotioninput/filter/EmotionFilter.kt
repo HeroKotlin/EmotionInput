@@ -15,7 +15,7 @@ import java.util.regex.Pattern
 
 abstract class EmotionFilter(pattern: String, private val emotionList: List<Emotion>) {
 
-    private var textSize2EmotionSizes = HashMap<Float, Int>()
+    private var textSize2Height = HashMap<Float, Float>()
 
     // 构造函数传 list 内部转成 map
     private val emotionCode2ImageId: Map<String, Int> by lazy {
@@ -30,37 +30,37 @@ abstract class EmotionFilter(pattern: String, private val emotionList: List<Emot
         Pattern.compile(pattern)
     }
 
-    fun filter(textView: TextView, text: CharSequence) {
+    fun filter(textView: TextView, text: CharSequence, emotionTextHeightRatio: Float) {
 
         val spannable = SpannableString(text)
 
-        filter(textView, spannable, text)
+        filter(textView, spannable, text, emotionTextHeightRatio)
 
         textView.text = spannable
 
     }
 
-    fun filter(textView: TextView, spannable: Spannable, text: CharSequence) {
+    fun filter(textView: TextView, spannable: Spannable, text: CharSequence, emotionTextHeightRatio: Float) {
 
         val context = textView.context
 
         match(text) { emotionCode, emotionStart, emotionEnd ->
             val drawable = getDrawable(context, emotionCode)
             if (drawable != null) {
-                setSpan(spannable, emotionStart, emotionEnd, drawable, textView.textSize)
+                setSpan(spannable, emotionStart, emotionEnd, drawable, textView.textSize, emotionTextHeightRatio)
             }
         }
 
     }
 
-    fun insert(textInput: EditText, emotion: Emotion): Boolean {
+    fun insert(textInput: EditText, emotion: Emotion, emotionTextHeightRatio: Float): Boolean {
 
         val context = textInput.context
 
         val drawable = getDrawable(context, emotion.code)
         if (drawable != null) {
             val spannable = SpannableString(emotion.code)
-            setSpan(spannable, 0, emotion.code.length, drawable, textInput.textSize)
+            setSpan(spannable, 0, emotion.code.length, drawable, textInput.textSize, emotionTextHeightRatio)
             textInput.text.insert(textInput.selectionStart, spannable)
             return true
         }
@@ -89,16 +89,23 @@ abstract class EmotionFilter(pattern: String, private val emotionList: List<Emot
         }
     }
 
-    private fun setSpan(spannable: Spannable, start: Int, end: Int, drawable: Drawable, textSize: Float) {
-        var emotionSize = textSize2EmotionSizes[textSize]
-        if (emotionSize == null) {
+    private fun setSpan(spannable: Spannable, start: Int, end: Int, drawable: Drawable, textSize: Float, emotionTextHeightRatio: Float) {
+
+        var textHeight = textSize2Height[textSize]
+        if (textHeight == null) {
             val paint = Paint()
             paint.textSize = textSize
-            emotionSize = (paint.fontMetrics.bottom - paint.fontMetrics.top).toInt()
-            textSize2EmotionSizes[textSize]= emotionSize
+            textHeight = paint.fontMetrics.bottom - paint.fontMetrics.top
+            textSize2Height[textSize]= textHeight
         }
-        drawable.setBounds(0, 0, emotionSize, emotionSize)
+
+        val emotionRatio = drawable.intrinsicWidth / drawable.intrinsicHeight
+        val emotionHeight = (textHeight * emotionTextHeightRatio).toInt()
+        val emotionWidth = emotionHeight * emotionRatio
+
+        drawable.setBounds(0, 0, emotionWidth, emotionHeight)
         spannable.setSpan(EmotionSpan(drawable), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
     }
 
 }

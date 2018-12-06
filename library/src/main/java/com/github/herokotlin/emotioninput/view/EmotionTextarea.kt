@@ -13,6 +13,11 @@ import com.github.herokotlin.emotioninput.model.Emotion
 
 class EmotionTextarea: EditText {
 
+    /**
+     * 表情和文本的高度比例
+     */
+    var emotionTextHeightRatio = 1.1f
+
     var onTextChange: (() -> Unit)? = null
 
     var plainText = ""
@@ -48,7 +53,7 @@ class EmotionTextarea: EditText {
             override fun onTextChanged(string: CharSequence?, start: Int, before: Int, count: Int) {
                 if (string != null) {
                     for (filter in filters) {
-                        filter.filter(this@EmotionTextarea, text, string)
+                        filter.filter(this@EmotionTextarea, text, string, emotionTextHeightRatio)
                     }
                     onTextChange?.invoke()
                 }
@@ -66,7 +71,7 @@ class EmotionTextarea: EditText {
 
     fun insertEmotion(emotion: Emotion) {
         for (filter in filters) {
-            if (filter.insert(this, emotion)) {
+            if (filter.insert(this, emotion, emotionTextHeightRatio)) {
                 break
             }
         }
@@ -75,7 +80,7 @@ class EmotionTextarea: EditText {
     fun insertText(text: CharSequence) {
         val spannable = SpannableStringBuilder(text)
         for (filter in filters) {
-            filter.filter(this, spannable, text)
+            filter.filter(this, spannable, text, emotionTextHeightRatio)
         }
         this.text.insert(selectionStart, spannable)
     }
