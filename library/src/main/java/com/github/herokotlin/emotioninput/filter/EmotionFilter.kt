@@ -99,11 +99,16 @@ abstract class EmotionFilter(pattern: String, private val emotionList: List<Emot
             textSize2Height[textSize]= textHeight
         }
 
-        val emotionRatio = drawable.intrinsicWidth.toFloat() / drawable.intrinsicHeight.toFloat()
-        val emotionHeight = (textHeight * emotionTextHeightRatio).toInt()
-        val emotionWidth = (emotionHeight * emotionRatio).toInt()
+        val imageRatio = drawable.intrinsicWidth.toFloat() / drawable.intrinsicHeight.toFloat()
+        var imageHeight = (textHeight * emotionTextHeightRatio).toInt()
+        var imageWidth = (imageHeight * imageRatio).toInt()
 
-        drawable.setBounds(0, 0, emotionWidth, emotionHeight)
+        if (imageWidth > imageHeight) {
+            imageWidth = imageHeight
+            imageHeight = (imageWidth / imageRatio).toInt()
+        }
+
+        drawable.setBounds(0, 0, imageWidth, imageHeight)
         spannable.setSpan(EmotionSpan(drawable), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
     }
