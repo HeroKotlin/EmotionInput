@@ -169,12 +169,16 @@ class EmotionGrid: FrameLayout {
                 emotionView.visibility = View.VISIBLE
 
                 itemView.setBackgroundResource(R.drawable.emotion_input_emotion_cell)
+
+                val layoutParams = imageView.layoutParams
                 if (width > 0) {
-                    imageView.layoutParams.width = width
+                    layoutParams.width = width
                 }
                 if (height > 0) {
-                    imageView.layoutParams.height = height
+                    layoutParams.height = height
                 }
+                imageView.layoutParams = layoutParams
+
                 if (emotion.name.isNotBlank()) {
                     textView.text = emotion.name
                     textView.visibility = View.VISIBLE

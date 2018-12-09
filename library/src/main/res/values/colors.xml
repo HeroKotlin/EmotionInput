@@ -12,7 +12,7 @@
     <color name="emotion_input_toolbar_bg_color">#FFF</color>
     <color name="emotion_input_toolbar_top_border_color">#D6D6D6</color>
     <color name="emotion_input_toolbar_cell_bg_color_pressed">#F4F3F6</color>
-    <color name="emotion_input_toolbar_cell_divider_color">#ECEBEC</color>
+    <color name="emotion_input_toolbar_cell_divider_color">#DDD</color>
 
     <color name="emotion_input_send_button_bg_color_disabled">#FAFAFA</color>
     <color name="emotion_input_send_button_text_color_disabled">#797979</color>
