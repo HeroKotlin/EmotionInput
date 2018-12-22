@@ -11,10 +11,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.github.herokotlin.emotioninput.R
 import com.github.herokotlin.emotioninput.model.EmotionIcon
-import kotlinx.android.synthetic.main.emotion_toolbar.view.*
-import kotlinx.android.synthetic.main.emotion_toolbar_icon.view.*
+import kotlinx.android.synthetic.main.emotion_input_toolbar.view.*
+import kotlinx.android.synthetic.main.emotion_input_toolbar_icon.view.*
 
-class EmotionToolbar : LinearLayout {
+internal class EmotionToolbar : LinearLayout {
 
     lateinit var onIconClick: (icon: EmotionIcon) -> Unit
 
@@ -41,7 +41,7 @@ class EmotionToolbar : LinearLayout {
 
     private fun init() {
 
-        LayoutInflater.from(context).inflate(R.layout.emotion_toolbar, this)
+        LayoutInflater.from(context).inflate(R.layout.emotion_input_toolbar, this)
 
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
@@ -80,7 +80,7 @@ class EmotionToolbar : LinearLayout {
     inner class IconListAdapter(private val context: Context) : RecyclerView.Adapter<IconViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconViewHolder {
-            val view = LayoutInflater.from(context).inflate(R.layout.emotion_toolbar_icon, null)
+            val view = LayoutInflater.from(context).inflate(R.layout.emotion_input_toolbar_icon, null)
             return IconViewHolder(view)
         }
 

@@ -33,7 +33,7 @@ dependencies {
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.github.herokotlin:DotIndicator:0.0.3'
+    implementation 'com.github.herokotlin:DotIndicator:0.0.5'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     testImplementation 'junit:junit:4.12'

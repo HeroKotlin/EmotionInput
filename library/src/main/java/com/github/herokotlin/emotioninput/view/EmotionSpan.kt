@@ -9,7 +9,7 @@ import android.text.style.ImageSpan
  * https://stackoverflow.com/questions/25628258/align-text-around-imagespan-center-vertical
  */
 
-class EmotionSpan(drawable: Drawable): ImageSpan(drawable) {
+internal class EmotionSpan(drawable: Drawable): ImageSpan(drawable) {
 
     override fun getSize(paint: Paint?, text: CharSequence?, start: Int, end: Int, fm: Paint.FontMetricsInt?): Int {
         return drawable.bounds.bottom

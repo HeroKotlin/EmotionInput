@@ -13,7 +13,7 @@ import com.github.herokotlin.emotioninput.EmotionInputConfiguration
 import com.github.herokotlin.emotioninput.R
 import com.github.herokotlin.emotioninput.model.EmotionIcon
 import com.github.herokotlin.emotioninput.model.EmotionSet
-import kotlinx.android.synthetic.main.emotion_pager.view.*
+import kotlinx.android.synthetic.main.emotion_input_pager.view.*
 
 class EmotionPager: LinearLayout {
 
@@ -93,7 +93,7 @@ class EmotionPager: LinearLayout {
 
     private fun init() {
 
-        LayoutInflater.from(context).inflate(R.layout.emotion_pager, this)
+        LayoutInflater.from(context).inflate(R.layout.emotion_input_pager, this)
 
         pager.adapter = object: PagerAdapter() {
 
@@ -123,8 +123,8 @@ class EmotionPager: LinearLayout {
 
             override fun getCount(): Int {
                 var count = 0
-                for (set in emotionSetList) {
-                    count += set.emotionPageList.count()
+                emotionSetList.forEach {
+                    count += it.emotionPageList.count()
                 }
                 return count
             }

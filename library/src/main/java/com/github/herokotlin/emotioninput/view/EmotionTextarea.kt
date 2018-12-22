@@ -16,7 +16,7 @@ class EmotionTextarea: EditText {
     /**
      * 表情和文本的高度比例
      */
-    var emotionTextHeightRatio = 1.1f
+    var emotionTextHeightRatio = 1f
 
     var onTextChange: (() -> Unit)? = null
 

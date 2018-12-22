@@ -14,10 +14,10 @@ import com.github.herokotlin.emotioninput.EmotionInputConfiguration
 import com.github.herokotlin.emotioninput.R
 import com.github.herokotlin.emotioninput.model.Emotion
 import com.github.herokotlin.emotioninput.model.EmotionPage
-import kotlinx.android.synthetic.main.emotion_cell.view.*
-import kotlinx.android.synthetic.main.emotion_grid.view.*
+import kotlinx.android.synthetic.main.emotion_input_cell.view.*
+import kotlinx.android.synthetic.main.emotion_input_grid.view.*
 
-class EmotionGrid: FrameLayout {
+internal class EmotionGrid: FrameLayout {
 
     lateinit var configuration: EmotionInputConfiguration
 
@@ -82,7 +82,7 @@ class EmotionGrid: FrameLayout {
 
     private fun init() {
 
-        LayoutInflater.from(context).inflate(R.layout.emotion_grid, this)
+        LayoutInflater.from(context).inflate(R.layout.emotion_input_grid, this)
 
         gridView.layoutManager = GridLayoutManager(context, 1)
 
@@ -105,7 +105,7 @@ class EmotionGrid: FrameLayout {
     inner class GridViewAdapter(val context: Context) : RecyclerView.Adapter<CellViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CellViewHolder {
-            val view = LayoutInflater.from(context).inflate(R.layout.emotion_cell, null)
+            val view = LayoutInflater.from(context).inflate(R.layout.emotion_input_cell, null)
             view.minimumHeight = layoutSize.cellHeight
             return CellViewHolder(view)
         }
