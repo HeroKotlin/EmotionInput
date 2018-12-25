@@ -6,7 +6,7 @@
     <dimen name="emotion_input_emotion_grid_row_spacing">10dp</dimen>
     <dimen name="emotion_input_emotion_grid_column_spacing">5dp</dimen>
 
-    <dimen name="emotion_input_emotion_name_text_size">12sp</dimen>
+    <dimen name="emotion_input_emotion_name_text_size">12dp</dimen>
     <dimen name="emotion_input_emotion_name_margin_top">4dp</dimen>
 
     <dimen name="emotion_input_indicator_margin_top">8dp</dimen>
@@ -21,7 +21,7 @@
     <dimen name="emotion_input_toolbar_cell_divider_width">1px</dimen>
     <dimen name="emotion_input_toolbar_cell_divider_offset">6dp</dimen>
 
-    <dimen name="emotion_input_send_button_text_size">14sp</dimen>
+    <dimen name="emotion_input_send_button_text_size">14dp</dimen>
     <dimen name="emotion_input_send_button_left_border_width">1px</dimen>
     <dimen name="emotion_input_send_button_padding_horizontal">14dp</dimen>
 
