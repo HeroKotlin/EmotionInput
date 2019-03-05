@@ -32,7 +32,7 @@ internal class EmotionGrid: FrameLayout {
             val layoutManager = gridView.layoutManager as GridLayoutManager
             layoutManager.spanCount = value.columns
 
-            gridView.adapter.notifyDataSetChanged()
+            gridView.adapter?.notifyDataSetChanged()
 
         }
 
@@ -210,8 +210,7 @@ internal class EmotionGrid: FrameLayout {
 
     inner class CellViewDecoration : RecyclerView.ItemDecoration() {
 
-        override fun getItemOffsets(rect: Rect, view: View,
-                                    parent: RecyclerView, state: RecyclerView.State?) {
+        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
 
             val index = parent.getChildAdapterPosition(view)
             val columnCount = emotionPage.columns
@@ -219,32 +218,32 @@ internal class EmotionGrid: FrameLayout {
             val columnIndex = index % columnCount
 
             if (rowIndex > 0 && rowIndex < emotionPage.rows) {
-                rect.top = rowSpacing
+                outRect.top = rowSpacing
             }
 
             // 水平的网格会自动均分
             if (columnCount == 2) {
                 // 只有两个，各分一半
                 if (columnIndex == 0) {
-                    rect.right = columnSpacing / 2
+                    outRect.right = columnSpacing / 2
                 }
                 else if (columnIndex == 1) {
-                    rect.left = columnSpacing / 2
+                    outRect.left = columnSpacing / 2
                 }
             }
             else if (columnCount > 2) {
                 if (columnIndex == 0) {
-                    rect.right = columnSpacing
+                    outRect.right = columnSpacing
                 }
                 else if (columnIndex < columnCount - 2) {
-                    rect.right = columnSpacing / 2
+                    outRect.right = columnSpacing / 2
                 }
                 if (columnIndex > 1) {
                     if (columnIndex == columnCount - 1) {
-                        rect.left = columnSpacing
+                        outRect.left = columnSpacing
                     }
                     else {
-                        rect.left = columnSpacing / 2
+                        outRect.left = columnSpacing / 2
                     }
                 }
             }

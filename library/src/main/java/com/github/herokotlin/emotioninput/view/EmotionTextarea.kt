@@ -105,9 +105,11 @@ class EmotionTextarea: EditText {
 
     private fun paste() {
         val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        insertText(
-            clipboard.primaryClip.getItemAt(0).text
-        )
+        clipboard.primaryClip?.let {
+            insertText(
+                it.getItemAt(0).text
+            )
+        }
     }
 
 }

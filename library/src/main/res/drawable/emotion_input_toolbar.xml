@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item>
-        <shape>
-            <solid android:color="@color/emotion_input_toolbar_top_border_color" />
-        </shape>
-    </item>
+<item>
+    <shape>
+        <solid android:color="@color/emotion_input_toolbar_top_border_color" />
+    </shape>
+</item>
 
-    <item android:top="@dimen/emotion_input_toolbar_top_border_width">
-        <shape>
-            <solid android:color="@color/emotion_input_toolbar_bg_color"/>
-        </shape>
-    </item>
+<item android:top="@dimen/emotion_input_toolbar_top_border_width">
+    <shape>
+        <solid android:color="@color/emotion_input_toolbar_bg_color"/>
+    </shape>
+</item>
 
 </layer-list>

@@ -24,7 +24,7 @@ internal class EmotionToolbar : LinearLayout {
 
         set(value) {
             field = value
-            iconList.adapter.notifyDataSetChanged()
+            iconList.adapter?.notifyDataSetChanged()
         }
 
     constructor(context: Context) : super(context) {
