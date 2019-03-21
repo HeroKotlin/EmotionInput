@@ -64,17 +64,17 @@ class EmotionPager: LinearLayout {
 
         }
 
-    var isSendButtonEnabled = false
+    var isSubmitButtonEnabled = false
 
         set(value) {
 
             field = value
 
             if (value) {
-                toolbar.enableSendButton()
+                toolbar.enableSubmitButton()
             }
             else {
-                toolbar.disableSendButton()
+                toolbar.disableSubmitButton()
             }
 
         }

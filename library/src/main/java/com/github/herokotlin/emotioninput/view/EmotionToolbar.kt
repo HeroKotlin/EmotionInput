@@ -53,27 +53,27 @@ internal class EmotionToolbar : LinearLayout {
 
         iconList.adapter = IconListAdapter(context)
 
-        sendButton.setOnClickListener {
+        submitButton.setOnClickListener {
             onSendClick()
         }
 
-        disableSendButton()
+        disableSubmitButton()
 
     }
 
-    fun enableSendButton() {
+    fun enableSubmitButton() {
 
-        sendButton.isEnabled = true
-        sendButton.setTextColor(ContextCompat.getColor(context, R.color.emotion_input_send_button_text_color_enabled))
-        sendButton.setBackgroundResource(R.drawable.emotion_input_send_button_enabled)
+        submitButton.isEnabled = true
+        submitButton.setTextColor(ContextCompat.getColor(context, R.color.emotion_input_submit_button_text_color_enabled))
+        submitButton.setBackgroundResource(R.drawable.emotion_input_submit_button_enabled)
 
     }
 
-    fun disableSendButton() {
+    fun disableSubmitButton() {
 
-        sendButton.isEnabled = false
-        sendButton.setTextColor(ContextCompat.getColor(context, R.color.emotion_input_send_button_text_color_disabled))
-        sendButton.setBackgroundResource(R.drawable.emotion_input_send_button_disabled)
+        submitButton.isEnabled = false
+        submitButton.setTextColor(ContextCompat.getColor(context, R.color.emotion_input_submit_button_text_color_disabled))
+        submitButton.setBackgroundResource(R.drawable.emotion_input_submit_button_disabled)
 
     }
 

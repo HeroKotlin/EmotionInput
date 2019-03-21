@@ -1,9 +1,8 @@
 package com.github.herokotlin.emotioninput
 
-import android.content.Context
 import android.widget.ImageView
 
-abstract class EmotionInputConfiguration(val context: Context) {
+abstract class EmotionInputConfiguration {
 
     /**
      * 加载图片

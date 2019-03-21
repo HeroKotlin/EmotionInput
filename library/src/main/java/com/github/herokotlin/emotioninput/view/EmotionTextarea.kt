@@ -20,7 +20,7 @@ class EmotionTextarea: EditText {
 
     var onTextChange: (() -> Unit)? = null
 
-    var plainText = ""
+    val plainText: String
 
         get() {
             return text.toString()

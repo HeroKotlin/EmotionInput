@@ -102,7 +102,7 @@ internal class EmotionGrid: FrameLayout {
         val gridPaddingVertical: Int
     )
 
-    inner class GridViewAdapter(val context: Context) : RecyclerView.Adapter<CellViewHolder>() {
+    inner class GridViewAdapter(private val context: Context) : RecyclerView.Adapter<CellViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CellViewHolder {
             val view = LayoutInflater.from(context).inflate(R.layout.emotion_input_cell, null)

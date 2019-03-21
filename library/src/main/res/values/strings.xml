@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="emotion_input_send_button_title">发送</string>
+    <string name="emotion_input_submit_button_title">发送</string>
 </resources>
