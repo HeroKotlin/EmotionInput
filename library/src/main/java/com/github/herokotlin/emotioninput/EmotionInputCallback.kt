@@ -8,6 +8,6 @@ interface EmotionInputCallback {
 
     fun onDeleteClick() { }
 
-    fun onSendClick() { }
+    fun onSubmitClick() { }
 
 }

@@ -161,8 +161,8 @@ class EmotionPager: LinearLayout {
             }
         }
 
-        toolbar.onSendClick = {
-            callback.onSendClick()
+        toolbar.onSubmitClick = {
+            callback.onSubmitClick()
         }
 
     }

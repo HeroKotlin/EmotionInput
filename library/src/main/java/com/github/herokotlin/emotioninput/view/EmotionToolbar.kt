@@ -18,7 +18,7 @@ internal class EmotionToolbar : LinearLayout {
 
     lateinit var onIconClick: (icon: EmotionIcon) -> Unit
 
-    lateinit var onSendClick: () -> Unit
+    lateinit var onSubmitClick: () -> Unit
 
     var emotionIconList = listOf<EmotionIcon>()
 
@@ -54,7 +54,7 @@ internal class EmotionToolbar : LinearLayout {
         iconList.adapter = IconListAdapter(context)
 
         submitButton.setOnClickListener {
-            onSendClick()
+            onSubmitClick()
         }
 
         disableSubmitButton()
