@@ -3,7 +3,7 @@ package com.github.herokotlin.emotioninput.filter
 import android.content.Context
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.Spanned
